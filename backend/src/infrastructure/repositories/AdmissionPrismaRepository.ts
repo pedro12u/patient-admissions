@@ -1,9 +1,9 @@
 import { AdmissionRepository } from '../../application/ports/AdmissionRepository';
 import { Admission } from '../../domain/entities/Admission';
-import { PrismaClient } from '@prisma/client';
+import { PrismaService } from '../prisma/PrismaService';
 
 export class AdmissionPrismaRepository implements AdmissionRepository {
-  constructor(private readonly prisma: PrismaClient) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   async findActiveByPatientId(patientId: string): Promise<Admission | null> {
     const result = await this.prisma.$queryRaw<
