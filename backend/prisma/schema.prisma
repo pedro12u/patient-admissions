@@ -23,6 +23,7 @@ model User {
   email        String   @unique
   passwordHash String
   createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   refreshTokens RefreshToken[]
   mfaCodes      MfaCode[]
@@ -44,7 +45,7 @@ model MfaCode {
 model RefreshToken {
   id        String   @id
   userId    String
-  tokenHash String
+  tokenHash String   @unique
   revokedAt DateTime?
   createdAt DateTime @default(now())
   expiresAt DateTime
@@ -52,4 +53,5 @@ model RefreshToken {
   user User @relation(fields: [userId], references: [id])
 
   @@index([userId])
+  @@index([expiresAt])
 }
