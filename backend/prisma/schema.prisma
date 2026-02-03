@@ -5,3 +5,13 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Admission {
+  id            String   @id
+  patientId     String
+  status        String
+  admittedAt    DateTime
+  dischargedAt  DateTime?
+
+  @@map("admissions")
+}
