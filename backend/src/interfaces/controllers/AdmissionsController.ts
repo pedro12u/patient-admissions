@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateAdmissionUseCase } from 'src/application/use-cases/CreateAdmissionUseCase';
+import { CreateAdmissionUseCase } from 'src/application/admission/use-cases/CreateAdmissionUseCase';
 import { CreateAdmissionDto } from '../dtos/CreateAdmissionDto';
 import { Inject } from '@nestjs/common';
 

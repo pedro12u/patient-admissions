@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AdmissionsController } from 'src/interfaces/controllers/AdmissionsController';
-import { CreateAdmissionUseCase } from 'src/application/use-cases/CreateAdmissionUseCase';
+import { CreateAdmissionUseCase } from 'src/application/admission/use-cases/CreateAdmissionUseCase';
 import { AdmissionPrismaRepository } from 'src/infrastructure/repositories/AdmissionPrismaRepository';
 import { PrismaService } from 'src/infrastructure/prisma/PrismaService';
 

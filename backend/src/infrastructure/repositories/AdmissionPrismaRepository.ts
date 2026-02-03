@@ -1,4 +1,4 @@
-import { AdmissionRepository } from '../../application/ports/AdmissionRepository';
+import { AdmissionRepository } from '../../application/admission/ports/AdmissionRepository';
 import { Admission } from '../../domain/entities/Admission';
 import { PrismaService } from '../prisma/PrismaService';
 
