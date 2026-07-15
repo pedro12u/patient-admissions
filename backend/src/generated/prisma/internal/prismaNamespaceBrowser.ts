@@ -52,6 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Admission: 'Admission',
+  Patient: 'Patient',
   User: 'User',
   MfaCode: 'MfaCode',
   RefreshToken: 'RefreshToken'
@@ -84,11 +85,23 @@ export const AdmissionScalarFieldEnum = {
 export type AdmissionScalarFieldEnum = (typeof AdmissionScalarFieldEnum)[keyof typeof AdmissionScalarFieldEnum]
 
 
+export const PatientScalarFieldEnum = {
+  id: 'id',
+  fullName: 'fullName',
+  sex: 'sex',
+  birthDate: 'birthDate',
+  city: 'city'
+} as const
+
+export type PatientScalarFieldEnum = (typeof PatientScalarFieldEnum)[keyof typeof PatientScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
   passwordHash: 'passwordHash',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]

@@ -43,6 +43,11 @@ export { Prisma }
  */
 export type Admission = Prisma.AdmissionModel
 /**
+ * Model Patient
+ * 
+ */
+export type Patient = Prisma.PatientModel
+/**
  * Model User
  * 
  */
