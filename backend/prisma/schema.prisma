@@ -18,6 +18,16 @@ model Admission {
   @@map("admissions")
 }
 
+model Patient {
+  id        String   @id
+  fullName  String
+  sex       String
+  birthDate DateTime
+  city      String
+
+  @@map("patients")
+}
+
 model User {
   id           String   @id
   email        String   @unique
