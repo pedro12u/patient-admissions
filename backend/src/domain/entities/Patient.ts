@@ -51,4 +51,15 @@ export class Patient {
   get city() {
     return this.props.city;
   }
+
+  update(changes: Partial<Omit<PatientProps, 'id'>>): Patient {
+    const definedChanges = Object.fromEntries(
+      Object.entries(changes).filter(([, value]) => value !== undefined),
+    );
+
+    return new Patient({
+      ...this.props,
+      ...definedChanges,
+    });
+  }
 }
