@@ -3,8 +3,10 @@ import { AdmissionsController } from 'src/interfaces/controllers/AdmissionsContr
 import { CreateAdmissionUseCase } from 'src/application/admission/use-cases/CreateAdmissionUseCase';
 import { AdmissionPrismaRepository } from 'src/infrastructure/repositories/AdmissionPrismaRepository';
 import { PrismaService } from 'src/infrastructure/prisma/PrismaService';
+import { PatientsModule } from 'src/interfaces/modules/patients/PatientsModule';
 
 @Module({
+  imports: [PatientsModule],
   controllers: [AdmissionsController],
   providers: [
     PrismaService,
@@ -14,10 +16,13 @@ import { PrismaService } from 'src/infrastructure/prisma/PrismaService';
     },
     {
       provide: CreateAdmissionUseCase,
-      useFactory: (admissionRepository) => {
-        return new CreateAdmissionUseCase(admissionRepository);
+      useFactory: (admissionRepository, patientRepository) => {
+        return new CreateAdmissionUseCase(
+          admissionRepository,
+          patientRepository,
+        );
       },
-      inject: ['AdmissionRepository'],
+      inject: ['AdmissionRepository', 'PatientRepository'],
     },
   ],
 })
